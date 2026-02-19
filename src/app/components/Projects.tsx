@@ -18,7 +18,7 @@ const Projects = () => {
       title: "movie Web",
       description: "Productivity app for managing tasks and projects with drag & drop functionality",
       image: "/project/movie.png", // GANTI: /projects/ → /project/
-      technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
+      technologies: ["HTML", "CSS", "JavaScript", "API Integration"],
       github: "https://github.com/agungdarma3024/webfilm",
       live: "https://web-film-lovat.vercel.app/"
     },
@@ -27,7 +27,7 @@ const Projects = () => {
       title: "Weather Dashboard",
       description: "Real-time weather application with beautiful UI and charts",
       image: "/project/dompet.png", // GANTI: /projects/ → /project/
-      technologies: ["React", "Chart.js", "API Integration", "CSS3"],
+      technologies: ["Pyton", "SQL", "AI", "Nekst.js"],
       github: "https://github.com/agungdarma3024/weather-app",
       live: "https://weatherapp-demo.vercel.app"
     }
