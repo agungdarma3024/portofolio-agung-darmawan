@@ -61,12 +61,24 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex space-x-4 pt-4"
             >
-              <button className="bg-white text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 text-sm uppercase tracking-wider">
-                View My Work
-              </button>
-              <button className="border border-white/30 text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-all duration-300 text-sm uppercase tracking-wider">
+              <button 
+                onClick={() => {
+                const projectsSection = document.getElementById("projects");
+                  if (projectsSection) {
+                  projectsSection.scrollIntoView({ behavior: "smooth" });}}}
+                  className="bg-white text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 text-sm uppercase tracking-wider">
+                  View My Work
+               </button>
+
+              <a 
+                href="/Agung_Darmawan_Resume.pdf"
+                download="Agung_Darmawan_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-white/30 text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-all duration-300 text-sm uppercase tracking-wider inline-block text-center">
                 Download CV
-              </button>
+              </a>
+
             </motion.div>
           </div>
 

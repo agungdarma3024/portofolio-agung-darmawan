@@ -5,10 +5,10 @@
 import { motion } from "framer-motion";
 // import Navbar from "./components/Navbar"; // Impor Navbar
 import About from "./components/About"; // Impor About - pastikan case sensitive
-import Sidebar from "./components/Contact"; // Impor Sidebar
-import Skills from "./components/Sidebar"; // Impor Skills - pastikan case sensitive
+import Sidebar from "./components/Sidebar"; // Impor Sidebar
+import Skills from "./components/Skills"; // Impor Skills - pastikan case sensitive
 import Projects from "./components/Projects";
-import Contact from "./components/Skills";
+import Contact from "./components/Contact";
 
 export default function Home() {
   return (
