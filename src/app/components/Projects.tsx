@@ -9,8 +9,8 @@ const Projects = () => {
       title: "E-Commerce Website",
       description: "Full-stack e-commerce platform with React, Node.js, and MongoDB",
       image: "/project/ecomers.png", // GANTI: /projects/ → /project/
-      technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
-      github: "https://github.com/agungdarma3024/ecommerce",
+      technologies: ["React", "Node.js", "CMS", "Tailwind CSS"],
+      github: "https://github.com/agungdarma3024/toko-sepatu-new.git",
       live: "https://ecommerce-demo.vercel.app"
     },
     {
@@ -20,14 +20,14 @@ const Projects = () => {
       image: "/project/movie.png", // GANTI: /projects/ → /project/
       technologies: ["HTML", "CSS", "JavaScript", "API Integration"],
       github: "https://github.com/agungdarma3024/webfilm",
-      live: "https://web-film-lovat.vercel.app/"
+      live: "https://toko-sepatu-wolak-walik.vercel.app/"
     },
     {
       id: 3,
-      title: "Weather Dashboard",
+      title: "app chase flow",
       description: "Real-time weather application with beautiful UI and charts",
       image: "/project/dompet.png", // GANTI: /projects/ → /project/
-      technologies: ["Pyton", "SQL", "AI", "Nekst.js"],
+      technologies: ["Python", "SQL", "AI", "Next.js"],
       github: "https://github.com/agungdarma3024/weather-app",
       live: "https://weatherapp-demo.vercel.app"
     }
