@@ -11,7 +11,7 @@ const Projects = () => {
       image: "/project/ecomers.png", // GANTI: /projects/ → /project/
       technologies: ["React", "Node.js", "CMS", "Tailwind CSS"],
       github: "https://github.com/agungdarma3024/toko-sepatu-new.git",
-      live: "https://ecommerce-demo.vercel.app"
+      live: "https://toko-sepatu-wolak-walik.vercel.app/"
     },
     {
       id: 2,
@@ -20,16 +20,16 @@ const Projects = () => {
       image: "/project/movie.png", // GANTI: /projects/ → /project/
       technologies: ["HTML", "CSS", "JavaScript", "API Integration"],
       github: "https://github.com/agungdarma3024/webfilm",
-      live: "https://toko-sepatu-wolak-walik.vercel.app/"
+      live: "https://web-film-lovat.vercel.app/"
     },
     {
       id: 3,
-      title: "app chase flow",
+      title: "Financial website",
       description: "Real-time weather application with beautiful UI and charts",
       image: "/project/dompet.png", // GANTI: /projects/ → /project/
       technologies: ["Python", "SQL", "AI", "Next.js"],
-      github: "https://github.com/agungdarma3024/weather-app",
-      live: "https://weatherapp-demo.vercel.app"
+      github: "https://github.com/agungdarma3024/laporan-keuangan.git",
+      live: ""
     }
   ];
 
