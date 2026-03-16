@@ -25,11 +25,11 @@ const Projects = () => {
     {
       id: 3,
       title: "Financial website",
-      description: "Real-time weather application with beautiful UI and charts",
+      description: "Real-time Field Finance Web",
       image: "/project/dompet.png", // GANTI: /projects/ → /project/
-      technologies: ["Python", "SQL", "AI", "Next.js"],
+      technologies: ["Axios", "FastAPI", "MongoDB Atlas", "Next.js"],
       github: "https://github.com/agungdarma3024/laporan-keuangan.git",
-      live: ""
+      live: "https://financial-web-l2ny.vercel.app"
     }
   ];
 
