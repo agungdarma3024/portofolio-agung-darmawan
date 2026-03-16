@@ -28,7 +28,7 @@ const Projects = () => {
       description: "Real-time Field Finance Web",
       image: "/project/dompet.png", // GANTI: /projects/ → /project/
       technologies: ["Axios", "FastAPI", "MongoDB Atlas", "Next.js"],
-      github: "https://github.com/agungdarma3024/laporan-keuangan.git",
+      github: "https://github.com/agungdarma3024/financial-web.git",
       live: "https://financial-web-l2ny.vercel.app"
     }
   ];
