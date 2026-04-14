@@ -1,13 +1,16 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../app/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Portfolio Agung", // Ganti dengan judul portofolio Anda
+  title: "Portfolio Agung",
   description: "Portfolio created with Next.js",
+  verification: {
+    google: "o8ZHfbG_CpCKPJZ38wgKY-JtNtitHIyJIt4tOK7mLX8" // ✅ Hanya contentnya saja
+  }
 };
 
 export default function RootLayout({
