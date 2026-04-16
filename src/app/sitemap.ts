@@ -2,15 +2,17 @@
 import { MetadataRoute } from 'next'
  
 export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = 'https://agungwebdev.com'
+
   return [
     {
-      url: 'https://portofolio-agung-darmawan.vercel.app/',
+      url: `${baseUrl}/`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,
     },
     {
-      url: 'https://portofolio-agung-darmawan.vercel.app/projects',
+      url: `${baseUrl}/projects`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
