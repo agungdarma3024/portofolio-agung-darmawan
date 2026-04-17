@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const About = () => {
   return (
@@ -12,7 +13,7 @@ const About = () => {
             {/* Header dengan nama */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="space-y-2"
             >
@@ -28,7 +29,7 @@ const About = () => {
             {/* Title dengan keyword SEO */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               className="space-y-1"
             >
@@ -43,7 +44,7 @@ const About = () => {
             {/* Description dengan keyword natural */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="max-w-2xl"
             >
@@ -62,7 +63,7 @@ const About = () => {
             {/* Layanan singkat */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="grid grid-cols-2 gap-4 pt-2"
             >
@@ -87,7 +88,7 @@ const About = () => {
             {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-4 pt-4"
             >
@@ -114,7 +115,7 @@ const About = () => {
             {/* Lokasi info */}
             <motion.div
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
               className="flex items-center space-x-2 text-gray-400 text-sm"
             >
@@ -128,17 +129,20 @@ const About = () => {
           {/* Right Photo */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex justify-center lg:justify-end"
           >
             <div className="relative">
-              {/* Main Photo Container */}
-              <div className="w-72 h-96 md:w-80 md:h-104 lg:w-96 lg:h-128 rounded-xl overflow-hidden border-4 border-white/20 shadow-lg shadow-black/30">
-                <img
+              {/* Main Photo Container - Updated to use Next.js Image */}
+              <div className="w-72 h-96 md:w-80 md:h-104 lg:w-96 lg:h-128 rounded-xl overflow-hidden border-4 border-white/20 shadow-lg shadow-black/30 relative">
+                <Image
                   src="/AD.jpg"
                   alt="Agung Darmawan - Web Developer Jakarta untuk UMKM"
-                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 288px, (max-width: 1024px) 320px, 384px"
+                  className="object-cover transform hover:scale-105 transition-transform duration-500"
                 />
               </div>
 
@@ -154,8 +158,7 @@ const About = () => {
                   ease: "easeInOut"
                 }}
                 className="absolute -top-4 -right-4 w-20 h-20 bg-blue-500/20 rounded-full blur-xl"
-              >
-              </motion.div>
+              />
 
               <motion.div
                 animate={{
@@ -169,8 +172,7 @@ const About = () => {
                   delay: 1
                 }}
                 className="absolute -bottom-4 -left-4 w-24 h-24 bg-purple-500/20 rounded-full blur-xl"
-              >
-              </motion.div>
+              />
             </div>
           </motion.div>
         </div>
