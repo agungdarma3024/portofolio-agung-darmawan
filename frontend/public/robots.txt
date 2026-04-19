@@ -1,15 +1,25 @@
 # Robots file — agungwebdev.com
+# Mengikuti aturan dari src/app/robots.ts versi Next.js
+# (dikonversi ke plain-text supaya kompatibel dengan Create React App + Vercel)
+
 User-agent: *
 Allow: /
+Disallow: /private/
 
-# Specifically allow AI crawlers untuk AI SEO
-User-agent: GPTBot
-Allow: /
-
-User-agent: ClaudeBot
+# Izinkan crawler AI & mesin pencari modern — penting untuk AI SEO
+User-agent: Googlebot
 Allow: /
 
 User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
 Allow: /
 
 User-agent: PerplexityBot

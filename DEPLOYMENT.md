@@ -11,9 +11,10 @@ Project sudah siap dengan:
 - `frontend/vercel.json` → konfigurasi routing SPA + security header
 - `frontend/.env.production` → environment variable produksi
 - `frontend/.vercelignore` → file yang di-skip saat upload
-- `frontend/public/robots.txt`
-- `frontend/public/sitemap.xml`
-- `frontend/public/google-site-verification-REPLACE.html` → placeholder Google
+- `frontend/public/robots.txt` → izin Google + AI crawlers
+- `frontend/public/sitemap.xml` → peta situs untuk Google
+- `frontend/public/google825e7538bee18ed9.html` → **file verifikasi Google Search Console (sudah dipasang)**
+- `frontend/next-migration-reference/` → referensi untuk migrasi ke Next.js di masa depan (tidak ikut build)
 
 Struktur folder yang akan di-deploy hanyalah **`/frontend`** (backend tidak dipakai untuk website static ini).
 
@@ -60,14 +61,15 @@ Setelah deploy, Vercel kasih URL: `https://nama-project.vercel.app`. Langkah sel
 
 ## 🔍 3. Daftar ke Google Search Console (WAJIB untuk SEO)
 
+File verifikasi sudah ada di project: **`/app/frontend/public/google825e7538bee18ed9.html`**
+
+Langkah:
 1. Buka https://search.google.com/search-console
 2. Tambahkan **Properti baru → URL prefix** → `https://agungwebdev.com`
 3. Pilih metode verifikasi **HTML file**.
-4. **Download** file dari Google (contoh: `google1234567890abcdef.html`).
-5. Taruh file tersebut di folder `/app/frontend/public/` (hapus file placeholder `google-site-verification-REPLACE.html`).
-6. Commit & deploy ulang ke Vercel.
-7. Kembali ke Search Console → klik **Verify**.
-8. Setelah terverifikasi:
+4. Google akan minta file bernama `google825e7538bee18ed9.html` — file tersebut **sudah ada di project** dan akan otomatis accessible di `https://agungwebdev.com/google825e7538bee18ed9.html` setelah deploy ke Vercel.
+5. Klik **Verify** di Search Console → seharusnya langsung tervalidasi.
+6. Setelah terverifikasi:
    - Menu **Sitemaps** → submit: `https://agungwebdev.com/sitemap.xml`
    - Menu **URL Inspection** → minta Google crawl halaman utama.
 
@@ -126,7 +128,7 @@ Ganti `G-XXXXXXXXXX` dengan ID Anda.
 | [ ] Website live di `agungwebdev.com` (HTTPS) |
 | [ ] `robots.txt` accessible: `agungwebdev.com/robots.txt` |
 | [ ] `sitemap.xml` accessible dan sudah di-submit ke Search Console |
-| [ ] Google Search Console terverifikasi |
+| [ ] `google825e7538bee18ed9.html` accessible dan Search Console ter-verify |
 | [ ] Google Business Profile live di Maps |
 | [ ] Google Analytics 4 tracking aktif |
 | [ ] Logo + Favicon + OG Image (1200×630) sudah diganti dengan branding Anda |

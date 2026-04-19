@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sitemap dibangun mengikuti struktur dari src/app/sitemap.ts (versi Next.js)
+  dikonversi ke XML statis supaya langsung deploy-ready di Vercel untuk Create React App.
+
+  Urutan halaman:
+  1. Home (/)                       — priority 1.0
+  2. Anchor section utama           — priority 0.7–0.9
+  3. Future pages /projects, /blog  — priority 0.8 (akan aktif saat migrasi Next.js)
+
+  Ganti <lastmod> setiap kali ada perubahan konten besar.
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://agungwebdev.com/</loc>
     <lastmod>2026-01-19</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>yearly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Anchor sections (single-page landing saat ini) -->
   <url>
     <loc>https://agungwebdev.com/#services</loc>
     <lastmod>2026-01-19</lastmod>
@@ -46,6 +59,20 @@
     <loc>https://agungwebdev.com/#contact</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Halaman future (akan tersedia saat migrasi Next.js / halaman dedicated) -->
+  <url>
+    <loc>https://agungwebdev.com/projects</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://agungwebdev.com/blog</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 </urlset>
