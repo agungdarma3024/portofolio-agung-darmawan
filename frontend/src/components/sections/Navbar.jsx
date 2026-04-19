@@ -42,15 +42,17 @@ export default function Navbar() {
             data-testid="navbar-logo"
             className="flex items-center gap-2.5"
           >
-            <span className="relative inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--brand-ink)] text-white font-bold text-lg shadow-md">
+            <span className={`relative inline-flex h-10 w-10 items-center justify-center rounded-xl font-bold text-lg shadow-md transition-colors ${
+              scrolled ? "bg-[var(--brand-ink)] text-white" : "bg-white text-[var(--brand-ink)]"
+            }`}>
               AD
-              <span className="absolute -bottom-1 -right-1 h-3 w-3 rounded-full bg-[var(--brand-gold)] border-2 border-white"></span>
+              <span className={`absolute -bottom-1 -right-1 h-3 w-3 rounded-full bg-[var(--brand-gold)] border-2 ${scrolled ? "border-white" : "border-[var(--brand-ink)]"}`}></span>
             </span>
             <div className="leading-tight">
-              <div className="text-[13px] font-extrabold tracking-tight text-[var(--brand-ink)]">
+              <div className={`text-[13px] font-extrabold tracking-tight transition-colors ${scrolled ? "text-[var(--brand-ink)]" : "text-white"}`}>
                 Agung Darmawan
               </div>
-              <div className="text-[10px] uppercase tracking-[0.18em] text-[var(--brand-gray-500)]">
+              <div className={`text-[10px] uppercase tracking-[0.18em] transition-colors ${scrolled ? "text-[var(--brand-gray-500)]" : "text-white/60"}`}>
                 Jasa Website UMKM
               </div>
             </div>
@@ -63,7 +65,11 @@ export default function Navbar() {
                 <a
                   data-testid={`nav-link-${l.label.toLowerCase().replace(/\s+/g, "-")}`}
                   href={l.href}
-                  className="link-sweep px-3 py-2 text-sm font-medium text-[var(--brand-ink)]/80 hover:text-[var(--brand-ink)] transition"
+                  className={`link-sweep px-3 py-2 text-sm font-medium transition ${
+                    scrolled
+                      ? "text-[var(--brand-ink)]/80 hover:text-[var(--brand-ink)]"
+                      : "text-white/80 hover:text-white"
+                  }`}
                 >
                   {l.label}
                 </a>
@@ -78,7 +84,11 @@ export default function Navbar() {
               href="https://wa.me/628211001473?text=Halo%20kak%2C%20saya%20mau%20konsultasi%20jasa%20pembuatan%20website%20UMKM"
               target="_blank"
               rel="noreferrer"
-              className="cta-shine inline-flex items-center gap-2 rounded-full bg-[var(--brand-ink)] text-white px-5 py-2.5 text-sm font-semibold hover:bg-[var(--brand-ink-2)] transition"
+              className={`cta-shine inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition ${
+                scrolled
+                  ? "bg-[var(--brand-ink)] text-white hover:bg-[var(--brand-ink-2)]"
+                  : "bg-[var(--brand-gold)] text-[var(--brand-ink)] hover:bg-[#ffcc3b]"
+              }`}
             >
               <MessageCircle className="w-4 h-4" />
               Konsultasi Gratis
@@ -89,7 +99,11 @@ export default function Navbar() {
           <button
             data-testid="mobile-menu-toggle"
             onClick={() => setOpen(!open)}
-            className="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-xl bg-white border border-[var(--brand-border)]"
+            className={`lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-xl border transition ${
+              scrolled
+                ? "bg-white border-[var(--brand-border)] text-[var(--brand-ink)]"
+                : "bg-white/10 border-white/20 text-white backdrop-blur"
+            }`}
             aria-label="Menu"
           >
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
