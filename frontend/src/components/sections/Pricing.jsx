@@ -4,7 +4,8 @@ const packages = [
   {
     name: "UMKM Starter",
     tag: "Landing Page",
-    price: "1.500.000",
+    originalPrice: "1.500.000", // Harga coret
+    price: "800.000",           // Harga baru
     priceSuffix: "/ project",
     tagline: "Pas buat UMKM baru yang mau eksis di Google.",
     features: [
@@ -23,7 +24,8 @@ const packages = [
   {
     name: "UMKM Bisnis",
     tag: "Company Profile",
-    price: "2.900.000",
+    originalPrice: "2.900.000", // Harga coret
+    price: "1.500.000",         // Harga baru
     priceSuffix: "/ project",
     tagline: "Buat bisnis yang siap go profesional & terlihat seperti korporat.",
     features: [
@@ -40,6 +42,8 @@ const packages = [
     cta: "Booking Bisnis",
     highlight: true,
   },
+  
+  /* === DI-COMMENT SEMENTARA ===
   {
     name: "UMKM Toko Online",
     tag: "E-Commerce",
@@ -81,6 +85,7 @@ const packages = [
     cta: "Konsultasikan Kebutuhan",
     highlight: false,
   },
+  ================================ */
 ];
 
 const addons = [
@@ -99,16 +104,15 @@ export default function Pricing() {
     >
       <div className="mx-auto max-w-7xl px-5">
         {/* Header */}
-        <div className="max-w-3xl">
+        <div className="max-w-3xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-[var(--brand-azure)] font-bold">
             <Sparkles className="w-3.5 h-3.5" /> Paket Harga UMKM
           </div>
           <h2 className="mt-3 font-display text-4xl lg:text-5xl font-semibold leading-[1.05] text-[var(--brand-ink)]">
             Harga jujur,{" "}
             <em className="not-italic text-[var(--brand-azure)]">pas buat UMKM</em>.
-            Kualitas tetap level agensi besar.
           </h2>
-          <p className="mt-4 text-[var(--brand-gray-700)] leading-relaxed">
+          <p className="mt-4 text-[var(--brand-gray-700)] leading-relaxed max-w-2xl mx-auto">
             Semua paket di bawah ini <strong>full coding Next.js</strong> — bukan
             template siap pakai. Perbandingan cepat: agensi besar biasanya mematok
             Rp 10–25 juta untuk coding custom. Kami kasih harga khusus untuk
@@ -116,15 +120,15 @@ export default function Pricing() {
           </p>
         </div>
 
-        {/* Price grid */}
-        <div className="mt-12 grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+        {/* Price grid - Diubah menjadi 2 kolom dan di-center (max-w-4xl mx-auto) */}
+        <div className="mt-12 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {packages.map((pkg, i) => (
             <article
               key={i}
               data-testid={`pricing-card-${pkg.name.toLowerCase().replace(/\s+/g, "-")}`}
               className={`relative flex flex-col rounded-3xl p-7 transition-all duration-300 overflow-hidden ${
                 pkg.highlight
-                  ? "bg-[var(--brand-ink)] text-white shadow-[0_20px_60px_rgba(10,37,64,0.25)] scale-[1.02]"
+                  ? "bg-[var(--brand-ink)] text-white shadow-[0_20px_60px_rgba(10,37,64,0.25)] scale-[1.02] md:-translate-y-2"
                   : "bg-white border border-[var(--brand-border)] hover:-translate-y-1 hover:shadow-xl"
               }`}
             >
@@ -163,20 +167,30 @@ export default function Pricing() {
                   {pkg.tagline}
                 </p>
 
-                <div className="mt-5 flex items-baseline gap-1">
-                  <span className={`text-sm ${pkg.highlight ? "text-white/60" : "text-[var(--brand-gray-500)]"}`}>
-                    Rp
-                  </span>
-                  <span
-                    className={`font-display text-4xl font-bold tracking-tight ${
-                      pkg.highlight ? "text-white" : "text-[var(--brand-ink)]"
-                    }`}
-                  >
-                    {pkg.price}
-                  </span>
-                  <span className={`text-xs ${pkg.highlight ? "text-white/50" : "text-[var(--brand-gray-500)]"}`}>
-                    {pkg.priceSuffix}
-                  </span>
+                {/* Section Harga */}
+                <div className="mt-5 flex flex-col">
+                  {/* Harga Coret */}
+                  {pkg.originalPrice && (
+                    <span className={`text-sm font-medium line-through ${pkg.highlight ? "text-white/50" : "text-[var(--brand-gray-400)]"}`}>
+                      Rp {pkg.originalPrice}
+                    </span>
+                  )}
+                  {/* Harga Diskon */}
+                  <div className="flex items-baseline gap-1 mt-0.5">
+                    <span className={`text-sm ${pkg.highlight ? "text-white/80" : "text-[var(--brand-gray-600)]"}`}>
+                      Rp
+                    </span>
+                    <span
+                      className={`font-display text-4xl font-bold tracking-tight ${
+                        pkg.highlight ? "text-[var(--brand-gold)]" : "text-[var(--brand-ink)]"
+                      }`}
+                    >
+                      {pkg.price}
+                    </span>
+                    <span className={`text-xs ${pkg.highlight ? "text-white/50" : "text-[var(--brand-gray-500)]"}`}>
+                      {pkg.priceSuffix}
+                    </span>
+                  </div>
                 </div>
 
                 <ul
@@ -218,7 +232,7 @@ export default function Pricing() {
         </div>
 
         {/* Add-ons */}
-        <div className="mt-12 rounded-3xl border border-[var(--brand-border)] bg-white p-7 lg:p-10">
+        <div className="mt-12 max-w-4xl mx-auto rounded-3xl border border-[var(--brand-border)] bg-white p-7 lg:p-10">
           <div className="flex flex-wrap items-end justify-between gap-6 mb-6">
             <div>
               <div className="text-xs uppercase tracking-[0.25em] text-[var(--brand-azure)] font-bold">
