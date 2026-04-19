@@ -1,0 +1,32 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Build output (Vercel will rebuild)
+/build
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Env files (production env ikut ter-deploy; local jangan)
+.env.local
+.env.development
+.env.development.local
+.env.test.local
+
+# Editor / OS
+.DS_Store
+.vscode
+.idea
+Thumbs.db
+
+# Tests
+/coverage
+/test_reports
+
+# Repo meta
+.git
+.gitignore

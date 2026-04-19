@@ -65,5 +65,16 @@ Add-on: SEO Lokal Rp 500rb/bln, Copywriting Rp 150rb/hal, Logo+brand Rp 350rb, G
 - Dark mode toggle keseluruhan site.
 - Dashboard klien untuk ticket maintenance.
 
+## Iterasi 2 — 2026-01-19
+- ✅ Font readability: Fraunces (serif) → **Bricolage Grotesque** (modern, sangat readable)
+- ✅ File deployment siap:
+  - `frontend/vercel.json` — SPA routing + security headers + cache
+  - `frontend/.env.production` — env prod
+  - `frontend/.vercelignore`
+  - `frontend/public/robots.txt` — ditambahkan AI crawlers (GPTBot, ClaudeBot, Google-Extended, PerplexityBot, Bingbot)
+  - `frontend/public/sitemap.xml` — dengan lastmod
+  - `frontend/public/google-site-verification-REPLACE.html` — placeholder untuk Search Console
+- ✅ `DEPLOYMENT.md` — panduan lengkap: Vercel, custom domain, Search Console, Google Business Profile, Analytics 4, Bing, checklist post-deploy
+
 ## Enhancement Ide
 - **Lead magnet** "Checklist 10 Hal yang Wajib Ada di Website UMKM" (PDF) — tukar email → newsletter → upsell paket.
