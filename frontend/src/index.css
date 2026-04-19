@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand palette — profesional Indonesia dengan aksen keberanian */
+  --brand-ink: #0A2540;        /* deep indigo ink (utama) */
+  --brand-ink-2: #0F3064;      /* secondary deep blue */
+  --brand-azure: #2A6EF5;      /* action blue */
+  --brand-azure-soft: #E8F1FF;
+  --brand-gold: #F5B301;       /* accent gold (Indonesia warm) */
+  --brand-red: #E63946;        /* Indonesia red accent */
+  --brand-cream: #FAF7F2;      /* paper background */
+  --brand-cream-2: #F2ECE0;
+  --brand-gray-900: #111827;
+  --brand-gray-700: #374151;
+  --brand-gray-500: #6B7280;
+  --brand-gray-300: #D1D5DB;
+  --brand-gray-100: #F3F4F6;
+  --brand-border: #E6E1D7;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--brand-cream);
+  color: var(--brand-ink);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'ss01','cv11';
+}
+
+::selection {
+  background: var(--brand-ink);
+  color: var(--brand-gold);
+}
+
+/* Shadcn tokens mapped to our brand */
+@layer base {
+  :root {
+    --background: 38 35% 97%;
+    --foreground: 215 62% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 62% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 62% 15%;
+    --primary: 215 62% 15%;
+    --primary-foreground: 38 35% 97%;
+    --secondary: 38 20% 92%;
+    --secondary-foreground: 215 62% 15%;
+    --muted: 38 20% 94%;
+    --muted-foreground: 215 14% 40%;
+    --accent: 220 94% 56%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 40 22% 86%;
+    --input: 40 22% 86%;
+    --ring: 220 94% 56%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground; }
+}
+
+/* --- Custom type helpers --- */
+.font-display { font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 144; letter-spacing: -0.02em; }
+.font-sans-jk { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+/* --- Grain / noise overlay used on dark sections --- */
+.grain-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* --- Marquee (clients logo ticker) --- */
+@keyframes marquee-x { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.animate-marquee { animation: marquee-x 30s linear infinite; }
+
+/* --- Floating --- */
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.animate-floaty { animation: floaty 4s ease-in-out infinite; }
+
+/* --- Fade up --- */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fade-up 0.8s cubic-bezier(.2,.8,.2,1) both; }
+
+/* --- Shine / cta --- */
+.cta-shine { position: relative; overflow: hidden; }
+.cta-shine::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -120%;
+  width: 60%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.35), transparent);
+  transition: left .7s ease;
+}
+.cta-shine:hover::after { left: 140%; }
+
+/* --- Glass card --- */
+.glass {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.5);
+}
+.glass-dark {
+  background: rgba(10,37,64,0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* --- Ticker radial halos on dark hero --- */
+.halo-blue { background: radial-gradient(circle at center, rgba(42,110,245,0.35), transparent 60%); }
+.halo-gold { background: radial-gradient(circle at center, rgba(245,179,1,0.35), transparent 60%); }
+
+/* --- Hide scrollbar on horizontal scrollers --- */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+@layer base {
+  [data-debug-wrapper="true"] { display: contents !important; }
+  [data-debug-wrapper="true"] > * {
+    margin-left: inherit; margin-right: inherit; margin-top: inherit; margin-bottom: inherit;
+    padding-left: inherit; padding-right: inherit; padding-top: inherit; padding-bottom: inherit;
+    column-gap: inherit; row-gap: inherit; gap: inherit;
+    border-left-width: inherit; border-right-width: inherit; border-top-width: inherit; border-bottom-width: inherit;
+    border-left-style: inherit; border-right-style: inherit; border-top-style: inherit; border-bottom-style: inherit;
+    border-left-color: inherit; border-right-color: inherit; border-top-color: inherit; border-bottom-color: inherit;
+  }
+}
