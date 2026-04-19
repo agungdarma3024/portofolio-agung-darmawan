@@ -161,8 +161,8 @@ export default function Contact() {
                     <option value="" className="bg-[var(--brand-ink)]">Pilih layanan yang diminati</option>
                     <option value="UMKM Starter (Rp 1,5jt)" className="bg-[var(--brand-ink)]">UMKM Starter</option>
                     <option value="UMKM Bisnis (Rp 2,9jt)" className="bg-[var(--brand-ink)]">UMKM Bisnis</option>
-                    <option value="UMKM Toko Online (Rp 4,9jt)" className="bg-[var(--brand-ink)]">UMKM Toko Online</option>
-                    <option value="Custom Premium" className="bg-[var(--brand-ink)]">Custom Premium</option>
+                    {/* <option value="UMKM Toko Online (Rp 4,9jt)" className="bg-[var(--brand-ink)]">UMKM Toko Online</option>
+                    <option value="Custom Premium" className="bg-[var(--brand-ink)]">Custom Premium</option> */}
                     <option value="Konsultasi saja" className="bg-[var(--brand-ink)]">Konsultasi saja</option>
                   </select>
                 </label>
