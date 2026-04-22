@@ -13,15 +13,15 @@ const projects = [
     stat: "↑ 3.2x traffic organik",
   },
   {
-    title: "Katalog Film Interaktif",
+    title: "Catering Rasa Sejati",
     category: "Website Katalog",
     description:
-      "Website katalog film real-time dengan integrasi TMDB API. Studi kasus tampilan konten kaya & cepat.",
-    image: "https://agungwebdev.com/project/movie.png",
-    stack: ["HTML", "JavaScript", "API Integration"],
-    live: "https://web-film-lovat.vercel.app/",
-    source: "https://github.com/agungdarma3024/webfilm",
-    stat: "⚡ 98 Performance Lighthouse",
+      "Website katalog untuk layanan catering yang terhubing dengan whatapp.",
+    image: "https://agungwebdev.com/project/Rasa Sejati Catering.png",
+    stack: ["NEXT.JS","Tailwind CSS","Framer Motion","API"],
+    live: "https://rasasejati.vercel.app//",
+    source: "https://github.com/agungdarma3024/jasa_catering.git",
+    stat: "meningkatkan order sebesar 10% dalam 3 bulan",
   },
   {
     title: "Aplikasi Keuangan UMKM",
