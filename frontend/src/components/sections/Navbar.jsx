@@ -1,78 +1,102 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X, MessageCircle } from "lucide-react";
 
 const links = [
-  { label: "Layanan", href: "#services" },
-  { label: "Paket Harga", href: "#pricing" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Proses", href: "#process" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Kontak", href: "#contact" },
+  { label: "Layanan", href: "/#services" },
+  { label: "Paket Harga", href: "/#pricing" },
+  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Blog", href: "/blog", isRoute: true },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Kontak", href: "/#contact" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  // On non-home pages, always show solid navbar (no dark hero to overlay)
+  const isHome = location.pathname === "/";
+  const solid = scrolled || !isHome;
 
   useEffect(() => {
+    if (!isHome) {
+      setScrolled(false);
+      return;
+    }
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isHome]);
 
   return (
     <header
       data-testid="navbar"
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? "py-2" : "py-4"
+        solid ? "py-2" : "py-4"
       }`}
     >
       <div className="mx-auto max-w-7xl px-5">
         <nav
           className={`flex items-center justify-between rounded-2xl transition-all duration-300 ${
-            scrolled
+            solid
               ? "bg-white/85 backdrop-blur-lg border border-[var(--brand-border)] shadow-[0_6px_24px_rgba(10,37,64,0.08)] px-4 py-2.5"
               : "bg-transparent px-2 py-2"
           }`}
         >
           {/* Logo */}
-          <a
-            href="#"
+          <Link
+            to="/"
             data-testid="navbar-logo"
             className="flex items-center gap-2.5"
           >
             <span className={`relative inline-flex h-10 w-10 items-center justify-center rounded-xl font-bold text-lg shadow-md transition-colors ${
-              scrolled ? "bg-[var(--brand-ink)] text-white" : "bg-white text-[var(--brand-ink)]"
+              solid ? "bg-[var(--brand-ink)] text-white" : "bg-white text-[var(--brand-ink)]"
             }`}>
               AD
-              <span className={`absolute -bottom-1 -right-1 h-3 w-3 rounded-full bg-[var(--brand-gold)] border-2 ${scrolled ? "border-white" : "border-[var(--brand-ink)]"}`}></span>
+              <span className={`absolute -bottom-1 -right-1 h-3 w-3 rounded-full bg-[var(--brand-gold)] border-2 ${solid ? "border-white" : "border-[var(--brand-ink)]"}`}></span>
             </span>
             <div className="leading-tight">
-              <div className={`text-[13px] font-extrabold tracking-tight transition-colors ${scrolled ? "text-[var(--brand-ink)]" : "text-white"}`}>
+              <div className={`text-[13px] font-extrabold tracking-tight transition-colors ${solid ? "text-[var(--brand-ink)]" : "text-white"}`}>
                 Agung Darmawan
               </div>
-              <div className={`text-[10px] uppercase tracking-[0.18em] transition-colors ${scrolled ? "text-[var(--brand-gray-500)]" : "text-white/60"}`}>
+              <div className={`text-[10px] uppercase tracking-[0.18em] transition-colors ${solid ? "text-[var(--brand-gray-500)]" : "text-white/60"}`}>
                 Jasa Website UMKM
               </div>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop links */}
           <ul className="hidden lg:flex items-center gap-1">
             {links.map((l) => (
               <li key={l.href}>
-                <a
-                  data-testid={`nav-link-${l.label.toLowerCase().replace(/\s+/g, "-")}`}
-                  href={l.href}
-                  className={`link-sweep px-3 py-2 text-sm font-medium transition ${
-                    scrolled
-                      ? "text-[var(--brand-ink)]/80 hover:text-[var(--brand-ink)]"
-                      : "text-white/80 hover:text-white"
-                  }`}
-                >
-                  {l.label}
-                </a>
+                {l.isRoute ? (
+                  <Link
+                    data-testid={`nav-link-${l.label.toLowerCase().replace(/\s+/g, "-")}`}
+                    to={l.href}
+                    className={`link-sweep px-3 py-2 text-sm font-medium transition ${
+                      solid
+                        ? "text-[var(--brand-ink)]/80 hover:text-[var(--brand-ink)]"
+                        : "text-white/80 hover:text-white"
+                    }`}
+                  >
+                    {l.label}
+                  </Link>
+                ) : (
+                  <a
+                    data-testid={`nav-link-${l.label.toLowerCase().replace(/\s+/g, "-")}`}
+                    href={l.href}
+                    className={`link-sweep px-3 py-2 text-sm font-medium transition ${
+                      solid
+                        ? "text-[var(--brand-ink)]/80 hover:text-[var(--brand-ink)]"
+                        : "text-white/80 hover:text-white"
+                    }`}
+                  >
+                    {l.label}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
@@ -85,7 +109,7 @@ export default function Navbar() {
               target="_blank"
               rel="noreferrer"
               className={`cta-shine inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition ${
-                scrolled
+                solid
                   ? "bg-[var(--brand-ink)] text-white hover:bg-[var(--brand-ink-2)]"
                   : "bg-[var(--brand-gold)] text-[var(--brand-ink)] hover:bg-[#ffcc3b]"
               }`}
@@ -100,7 +124,7 @@ export default function Navbar() {
             data-testid="mobile-menu-toggle"
             onClick={() => setOpen(!open)}
             className={`lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-xl border transition ${
-              scrolled
+              solid
                 ? "bg-white border-[var(--brand-border)] text-[var(--brand-ink)]"
                 : "bg-white/10 border-white/20 text-white backdrop-blur"
             }`}
@@ -119,13 +143,23 @@ export default function Navbar() {
             <ul className="flex flex-col">
               {links.map((l) => (
                 <li key={l.href}>
-                  <a
-                    href={l.href}
-                    onClick={() => setOpen(false)}
-                    className="block py-3 px-2 text-sm font-medium text-[var(--brand-ink)] border-b border-[var(--brand-border)] last:border-b-0"
-                  >
-                    {l.label}
-                  </a>
+                  {l.isRoute ? (
+                    <Link
+                      to={l.href}
+                      onClick={() => setOpen(false)}
+                      className="block py-3 px-2 text-sm font-medium text-[var(--brand-ink)] border-b border-[var(--brand-border)] last:border-b-0"
+                    >
+                      {l.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={l.href}
+                      onClick={() => setOpen(false)}
+                      className="block py-3 px-2 text-sm font-medium text-[var(--brand-ink)] border-b border-[var(--brand-border)] last:border-b-0"
+                    >
+                      {l.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

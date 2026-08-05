@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin, ArrowUpRight, Github } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -95,12 +96,13 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="text-xs uppercase tracking-[0.25em] font-bold text-[var(--brand-gold)]">Navigasi</div>
             <ul className="mt-4 space-y-2.5 text-sm">
+              <li><Link to="/blog" className="hover:text-white transition">Blog</Link></li>
               {[
-                { l: "Portfolio", h: "#portfolio" },
-                { l: "Proses Kerja", h: "#process" },
-                { l: "Testimoni", h: "#testimonials" },
-                { l: "FAQ", h: "#faq" },
-                { l: "Kontak", h: "#contact" },
+                { l: "Portfolio", h: "/#portfolio" },
+                { l: "Proses Kerja", h: "/#process" },
+                { l: "Testimoni", h: "/#testimonials" },
+                { l: "FAQ", h: "/#faq" },
+                { l: "Kontak", h: "/#contact" },
               ].map((x) => (
                 <li key={x.h}><a href={x.h} className="hover:text-white transition">{x.l}</a></li>
               ))}

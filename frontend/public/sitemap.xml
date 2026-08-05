@@ -75,4 +75,24 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Artikel Blog -->
+  <url>
+    <loc>https://agungwebdev.com/blog/cara-memilih-jasa-pembuatan-website-umkm</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://agungwebdev.com/blog/10-fitur-wajib-website-toko-online-umkm</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://agungwebdev.com/blog/panduan-seo-lokal-umkm-google-maps</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
